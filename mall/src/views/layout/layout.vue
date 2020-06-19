@@ -15,10 +15,8 @@
     width: 100%;
   }
   .main-container{
-    transition: width .28s;
-    /* width: 180px!important; */
     height: 100%;
-    left: 80px;
+    margin-left: 180px;
     top: 0;
     bottom: 0;
     right: 0;
