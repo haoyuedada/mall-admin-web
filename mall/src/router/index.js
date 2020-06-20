@@ -8,7 +8,7 @@ Vue.use(VueRouter)
 import Layout from '../views/layout/layout'
 
 const routes = [
-  {path:'/404',component:()=>import('@/404/404'),hidden:true},
+  {path:'/404',component:()=>import('@/views/404/404'),hidden:true},
   {
     path: '',
     component: Layout,
