@@ -5,12 +5,11 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state:{
-    count:0
+    isActive:false
   },
   mutations:{
     increment(state){
-      state.count++
-      console.log(state)
+      state.isActive = !state.isActive;
     }
   }
 })

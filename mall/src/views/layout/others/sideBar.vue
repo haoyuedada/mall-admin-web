@@ -135,19 +135,30 @@
 </style>
 
 <script>
+
   export default {
     data() {
       return {
           msg: '初始代模板',
-          isActive:false
+          isActive:count,
+          count:false
         }
+    },
+    computed: {
+      count () {
+        return this.$store.state.isActive
+      }
     },
     methods:{
       handleOpen(key, keyPath){
         console.log(key, keyPath);
+        console.log(this.$store.state.isActive);
       },
       handleClose(key, keyPath) {
         console.log(key, keyPath);
+      },
+      handle(){
+        this.isActive = !this.isActive;
       }
     }
   }
