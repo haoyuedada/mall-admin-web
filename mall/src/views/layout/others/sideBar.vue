@@ -1,5 +1,5 @@
 <template>
-  <div :class="[isActive ? 'closeSideBar'  : 'openSideBar']">
+  <div :class="[isClose ? 'closeSideBar'  : 'openSideBar']">
     <el-col>
       <el-menu
         default-active="1"
@@ -94,7 +94,7 @@
   </div>
 </template>
 
-<style>
+<style lang="scss">
   .sidebar{
     height: 100%;
     position: fixed;
@@ -118,6 +118,9 @@
     z-index: 1001;
     overflow: hidden;
     background-color:#304156;
+    .el-submenu__icon-arrow{
+      font-size: 15px !important;
+    }
   }
   .closeSideBar{
     transition: width .28s;
@@ -131,6 +134,13 @@
     z-index: 1001;
     overflow: hidden;
     background-color:#304156;
+    .el-submenu__icon-arrow{
+      transition: 1s;
+      display: none;
+    }
+  }
+  i{
+    font-size: 20px !important;
   }
 </style>
 
@@ -140,25 +150,20 @@
     data() {
       return {
           msg: '初始代模板',
-          isActive:count,
           count:false
         }
     },
     computed: {
-      count () {
+      isClose () {
         return this.$store.state.isActive
       }
     },
     methods:{
       handleOpen(key, keyPath){
         console.log(key, keyPath);
-        console.log(this.$store.state.isActive);
       },
       handleClose(key, keyPath) {
         console.log(key, keyPath);
-      },
-      handle(){
-        this.isActive = !this.isActive;
       }
     }
   }

@@ -36,7 +36,7 @@ Vuex | 全局状态管理框架 | [https://vuex.vuejs.org/](https://vuex.vuejs.o
 Element | 前端UI框架 | [https://element.eleme.io/](https://element.eleme.io/)
 v-charts | 基于Echarts的图表框架 | [https://v-charts.js.org/](https://v-charts.js.org/)
 nprogress | 进度条控件 | [https://github.com/rstacruz/nprogress](https://github.com/rstacruz/nprogress)
-
+sass-loader | CSS预处理语言 |[https://www.sass.hk/]
 ### 项目布局
 
 ``` lua

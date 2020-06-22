@@ -1,7 +1,7 @@
 <template>
   <div style="padding: 0 15px;" @click="toggleClick" class="hamburger-container">
     <svg
-      :class="{'is-active':isActive}"
+      :class="[isClose ? 'closeSideBarHam'  : 'openSideBarHam']"
       class="hamburger"
       viewBox="0 0 1024 1024"
       xmlns="http://www.w3.org/2000/svg"
@@ -22,6 +22,11 @@
             default:false
           }
         },
+        computed:{
+          isClose(){
+            return this.$store.state.isActive
+          }
+        },
         methods:{
           toggleClick(){
             this.$emit('toggleClick')
@@ -36,6 +41,8 @@
     vertical-align: middle;
     width: 20px;
     height: 20px;
+    transition: .38s;
+    transform-origin: 50% 50%;
   }
   .hamburger-container{
     padding: 0px 15px;
@@ -45,7 +52,10 @@
     line-height: 46px;
     transition: background .3s;
   }
-  .hamburger.is-active {
+  .closeSideBarHam{
     transform: rotate(180deg);
+  }
+  .openSideBarHam{
+
   }
 </style>

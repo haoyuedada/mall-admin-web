@@ -8,7 +8,7 @@ const store = new Vuex.Store({
     isActive:false
   },
   mutations:{
-    increment(state){
+    spreadMenu(state){
       state.isActive = !state.isActive;
     }
   }

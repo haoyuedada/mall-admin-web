@@ -1,7 +1,7 @@
 <template>
   <div class="app-wrapper">
     <sideBar></sideBar>
-    <div class="main-container">
+    <div :class="['main-container',isClose ? 'closeSideBarMain'  : 'openSideBarMain']">
       <topBar></topBar>
       <home></home>
     </div>
@@ -16,9 +16,15 @@
   }
   .main-container{
     position:absolute;
-    margin-left: 210px;
     overflow: hidden;
     background-color: #304156;
+    transition: width .28s;
+  }
+  .closeSideBarMain{
+    margin-left: 54px;
+  }
+  .openSideBarMain{
+    margin-left: 210px;
   }
   body{
     margin: 0;
@@ -37,6 +43,11 @@
       sideBar,
       topBar,
       home
+    },
+    computed:{
+      isClose(){
+        return this.$store.state.isActive
+      }
     },
     methods:{
       handleOpen(key, keyPath){

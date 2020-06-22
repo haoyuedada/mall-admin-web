@@ -26,7 +26,7 @@
     },
     methods:{
       toggleSideBar(){
-        this.$store.commit('increment')
+        this.$store.commit('spreadMenu')
       }
     }
 	}
