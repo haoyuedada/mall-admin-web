@@ -15,11 +15,8 @@
     width: 100%;
   }
   .main-container{
-    height: 100%;
-    margin-left: 180px;
-    top: 0;
-    bottom: 0;
-    right: 0;
+    position:absolute;
+    margin-left: 210px;
     overflow: hidden;
     background-color: #304156;
   }

@@ -12,6 +12,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 //import About from './components/Aboutt'
 //import sideBar from './components/sideBar'
 import router from './router'
+import store from './vuex/store'
 Vue.use(ElementUI);
 //实例化Vue实例
 new Vue({
@@ -22,5 +23,6 @@ new Vue({
   //声明App组件，这样上面的<App/>元素就可以生效
   components: { App },
   //将上面声明的路由器传递到根Vue实例
-  router
+  router,
+  store
 })//将这个实例挂载到id=app的根元素上

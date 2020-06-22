@@ -1,22 +1,21 @@
 <template>
-  <div class="sidebar">
+  <div :class="[isActive ? 'closeSideBar'  : 'openSideBar']">
     <el-col>
       <el-menu
+        default-active="1"
         class="el-menu-vertical-demo"
         @open="handleOpen"
         @close="handleClose"
         background-color="#304156"
         text-color="#fff"
-        active-text-color="#ffd04b">
-        //首页
+        active-text-color="rgb(64, 158, 255)">
         <el-menu-item index="1">
           <i class="el-icon-location"></i>
           <span slot="title">首页</span>
         </el-menu-item>
-        //商品栏
         <el-submenu index="2">
           <template slot="title">
-            <i class="el-icon-s-cooperation"></i>
+            <i class="el-icon-collection"></i>
             <span>商品</span>
           </template>
           <el-menu-item index="2-1">
@@ -40,10 +39,9 @@
             <span slot="title">品牌管理</span>
           </el-menu-item>
         </el-submenu>
-        //订单栏
         <el-submenu index="3">
           <template slot="title">
-            <i class="el-icon-s-shop"></i>
+            <i class="el-icon-notebook-2"></i>
             <span>订单</span>
           </template>
           <el-menu-item index="3-1">
@@ -63,7 +61,6 @@
             <span slot="title">退货原因设置</span>
           </el-menu-item>
         </el-submenu>
-        //营销
         <el-submenu index="4">
           <template slot="title">
             <i class="el-icon-s-shop"></i>
@@ -86,6 +83,12 @@
             <span slot="title">新品推荐</span>
           </el-menu-item>
         </el-submenu>
+        <el-submenu index="5">
+          <template slot="title">
+            <i class="el-icon-cpu"></i>
+            <span>升级记录</span>
+          </template>
+        </el-submenu>
       </el-menu>
     </el-col>
   </div>
@@ -93,8 +96,32 @@
 
 <style>
   .sidebar{
+    height: 100%;
+    position: fixed;
+    font-size: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    overflow: hidden;
+    background-color:#304156;
+  }
+  .openSideBar{
     transition: width .28s;
-    width: 180px!important;
+    width: 210px!important;
+    height: 100%;
+    position: fixed;
+    font-size: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    overflow: hidden;
+    background-color:#304156;
+  }
+  .closeSideBar{
+    transition: width .28s;
+    width: 54px!important;
     height: 100%;
     position: fixed;
     font-size: 0;
@@ -108,16 +135,30 @@
 </style>
 
 <script>
+
   export default {
     data() {
-      return {msg: '初始代模板'}
+      return {
+          msg: '初始代模板',
+          isActive:count,
+          count:false
+        }
+    },
+    computed: {
+      count () {
+        return this.$store.state.isActive
+      }
     },
     methods:{
       handleOpen(key, keyPath){
         console.log(key, keyPath);
+        console.log(this.$store.state.isActive);
       },
       handleClose(key, keyPath) {
         console.log(key, keyPath);
+      },
+      handle(){
+        this.isActive = !this.isActive;
       }
     }
   }
