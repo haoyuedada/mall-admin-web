@@ -8,7 +8,9 @@
         @close="handleClose"
         background-color="#304156"
         text-color="#fff"
-        active-text-color="rgb(64, 158, 255)">
+        active-text-color="rgb(64, 158, 255)"
+        ref="el-menu"
+        :collapse="isClose ? true  : false">
         <el-menu-item index="1">
           <i class="el-icon-location"></i>
           <span slot="title">首页</span>
@@ -135,7 +137,7 @@
     overflow: hidden;
     background-color:#304156;
     .el-submenu__icon-arrow{
-      transition: 1s;
+      transition:width .28s;
       display: none;
     }
   }
@@ -153,9 +155,18 @@
           count:false
         }
     },
+    watch:{
+      isClose(newval,oldVal){
+        //this.$refs["el-menu"].openedMenus.length = 0;
+        /*this.$nextTick(()=>{
+          this.$refs["el-menu"].openedMenus.length = 0;
+        })*/
+      }
+    },
     computed: {
       isClose () {
-        return this.$store.state.isActive
+        //console.log(this.$refs.el-menu.openedMenus);
+        return this.$store.state.isActive;
       }
     },
     methods:{
