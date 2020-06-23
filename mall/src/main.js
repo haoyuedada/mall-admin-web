@@ -7,13 +7,18 @@ import Vue from 'vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
+import Vcharts from 'v-charts'
+
 //import Hello from './components/HelloWorld'
 //import About from './components/Aboutt'
 //import sideBar from './components/sideBar'
 import App from './App'
 import router from './router'
 import store from './vuex/store'
+
 Vue.use(ElementUI);
+Vue.use(Vcharts);
+
 //实例化Vue实例
 new Vue({
   //定义Vue绑定的跟元素
