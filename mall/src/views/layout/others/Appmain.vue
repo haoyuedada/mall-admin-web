@@ -5,7 +5,11 @@
 </template>
 
 <style>
-
+.Appmain{
+  background-color: #f0f2f5;
+  top: 30px;
+  position: relative;
+}
 </style>
 
 <script>

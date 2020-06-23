@@ -17,7 +17,6 @@
   .main-container{
     position:relative;
     overflow: hidden;
-    background-color: #304156;
     transition: width .28s;
   }
   .closeSideBarMain{

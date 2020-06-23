@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    sfsdfsd
+    <chartShows></chartShows>
   </div>
 </template>
 
@@ -9,9 +9,14 @@
 </style>
 
 <script>
+  import chartShows from '@/components/chartShows'
+
   export default {
     data() {
       return {msg: '初始代模板'}
+    },
+    components:{
+      chartShows
     },
     methods:{
       handleOpen(key, keyPath){
