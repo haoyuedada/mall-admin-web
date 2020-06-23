@@ -15,6 +15,17 @@ VueRouter.prototype.push = function push(location) {
 const routes = [
   {path:'/404',component:()=>import('@/views/404/404'),hidden:true},
   {
+    path:'/error',
+    component: Layout,
+    redirect: 'noRedirect',
+    children: [{
+      path: '404',
+      name: 'page404',
+      component: () => import('@/views/404/404'),
+      meta: {title: '404', icon: 'page404'}
+    }]
+  },
+  {
     path: '',
     component: Layout,
     redirect: '/home',
@@ -42,7 +53,7 @@ const routes = [
   },
   {
     path:'*',
-    redirect:'/404',
+    redirect:'404',
     name:'notFound',
     hidden:true
   }

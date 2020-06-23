@@ -1,5 +1,4 @@
 <template>
-  <div>
     <div class="app-container">
       <div class="pic" style="position: absolute;padding-left: 136px;">
         <img class="pic_parent" src="@/assets/404_pages/404.png" height="300" width="500"/>
@@ -16,7 +15,6 @@
         </div>
       </el-col>
     </div>
-  </div>
 </template>
 
 <script>
