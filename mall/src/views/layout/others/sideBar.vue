@@ -2,6 +2,7 @@
   <div :class="[isClose ? 'closeSideBar'  : 'openSideBar']">
     <el-col>
       <el-menu
+        style="transition: width .28s;width: 210px;"
         default-active="1"
         class="el-menu-vertical-demo"
         @open="handleOpen"
@@ -10,20 +11,47 @@
         text-color="#fff"
         active-text-color="rgb(64, 158, 255)"
         ref="el-menu"
-        :collapse="isClose ? true  : false">
-        <el-menu-item index="1">
-          <i class="el-icon-location"></i>
-          <span slot="title">首页</span>
-        </el-menu-item>
+        :collapse="isClose ? true  : false"
+        >
+        <template v-for="(item,index) in menus">
+          <router-link v-if="item.leaf == '1'" :to="{ path : item.path}">
+            <el-menu-item :index="item.key">
+              <i :class="item.icon"></i>
+              <span slot="title">{{ item.name }}</span>
+            </el-menu-item>
+          </router-link>
+          <el-submenu v-if="item.leaf == '0'" :index="item.key">
+            <template slot="title">
+              <i :class="item.icon"></i>
+              <span>{{ item.name }}</span>
+            </template>
+            <template v-for="(item,index) in item.children">
+              <router-link :to="{path:item.path}">
+                <el-menu-item :index="item.key">
+                  <i :class="item.icon"></i>
+                  <span>{{ item.name }}</span>
+                </el-menu-item>
+              </router-link>
+            </template>
+          </el-submenu>
+        </template>
+        <!--<router-link :to="{ path : '/home'}">
+          <el-menu-item index="1">
+            <i class="el-icon-location"></i>
+            <span slot="title">首页</span>
+          </el-menu-item>
+        </router-link>
         <el-submenu index="2">
           <template slot="title">
             <i class="el-icon-collection"></i>
             <span>商品</span>
           </template>
-          <el-menu-item index="2-1">
-            <i class="el-icon-menu"></i>
-            <span slot="title">商品列表</span>
-          </el-menu-item>
+          <router-link :to="{ path : '/product/productList'}">
+            <el-menu-item index="2-1" >
+              <i class="el-icon-menu"></i>
+              <span slot="title">商品列表</span>
+            </el-menu-item>
+          </router-link>
           <el-menu-item index="2-2">
             <i class="el-icon-s-goods"></i>
             <span slot="title">添加商品</span>
@@ -90,7 +118,8 @@
             <i class="el-icon-cpu"></i>
             <span>升级记录</span>
           </template>
-        </el-submenu>
+        </el-submenu>-->
+
       </el-menu>
     </el-col>
   </div>
@@ -152,20 +181,178 @@
     data() {
       return {
           msg: '初始代模板',
-          count:false
+          count:false,
+          menus:[
+            {
+              name:'首页',
+              path:'/home',
+              key:'1',
+              icon:'el-icon-location',
+              level:'1',
+              leaf:'1',
+              children:[]
+            },
+            {
+              name:'商品',
+              path:'/product',
+              key:'2',
+              icon:'el-icon-collection',
+              level:'1',
+              leaf:'0',
+              children:[
+                {
+                  name:'商品列表',
+                  path:'/product/productList',
+                  key:'2-1',
+                  icon:'el-icon-menu',
+                  level:'2',
+                  leaf:'1',
+                  children:[]
+                },
+                {
+                  name:'添加商品',
+                  path:'/product/productAdd',
+                  key:'2-2',
+                  icon:'el-icon-s-goods',
+                  level:'2',
+                  leaf:'1',
+                  children:[]
+                },
+                {
+                  name:'商品分类',
+                  path:'/product/productAdd',
+                  key:'2-3',
+                  icon:'el-icon-s-claim',
+                  level:'2',
+                  leaf:'1',
+                  children:[]
+                },
+                {
+                  name:'商品类型',
+                  path:'/product/productAdd',
+                  key:'2-4',
+                  icon:'el-icon-s-shop',
+                  level:'2',
+                  leaf:'1',
+                  children:[]
+                },
+                {
+                  name:'品牌管理',
+                  path:'/product/productAdd',
+                  key:'2-5',
+                  icon:'el-icon-collection',
+                  level:'2',
+                  leaf:'1',
+                  children:[]
+                }
+              ]
+            },
+            {
+              name:'订单',
+              path:'/order',
+              key:'3',
+              icon:'el-icon-notebook-2',
+              level:'1',
+              leaf:'0',
+              children:[
+                {
+                  name:'订单列表',
+                  path:'/product/productList',
+                  key:'3-1',
+                  icon:'el-icon-tickets',
+                  level:'2',
+                  leaf:'1',
+                  children:[]
+                },
+                {
+                  name:'订单设置',
+                  path:'/product/productAdd',
+                  key:'3-2',
+                  icon:'el-icon-document-remove',
+                  level:'2',
+                  leaf:'1',
+                  children:[]
+                },
+                {
+                  name:'退货申请处理',
+                  path:'/product/productAdd',
+                  key:'3-3',
+                  icon:'el-icon-document-delete',
+                  level:'2',
+                  leaf:'1',
+                  children:[]
+                },
+                {
+                  name:'退货原因设置',
+                  path:'/product/productAdd',
+                  key:'3-4',
+                  icon:'el-icon-document-copy',
+                  level:'2',
+                  leaf:'1',
+                  children:[]
+                }
+              ]
+            },
+            {
+              name:'营销',
+              path:'/market',
+              key:'4',
+              icon:'el-icon-s-shop',
+              level:'1',
+              leaf:'0',
+              children:[
+                {
+                  name:'秒杀活动列表',
+                  path:'/product/productList',
+                  key:'4-1',
+                  icon:'el-icon-data-analysis',
+                  level:'2',
+                  leaf:'1',
+                  children:[]
+                },
+                {
+                  name:'优惠券列表',
+                  path:'/product/productAdd',
+                  key:'4-2',
+                  icon:'el-icon-film',
+                  level:'2',
+                  leaf:'1',
+                  children:[]
+                },
+                {
+                  name:'品牌推荐',
+                  path:'/product/productAdd',
+                  key:'4-3',
+                  icon:'el-icon-suitcase',
+                  level:'2',
+                  leaf:'1',
+                  children:[]
+                },
+                {
+                  name:'新品推荐',
+                  path:'/product/productAdd',
+                  key:'4-4',
+                  icon:'el-icon-suitcase-1',
+                  level:'2',
+                  leaf:'1',
+                  children:[]
+                }
+              ]
+            },
+            {
+              name:'升级记录',
+              path:'/update',
+              key:'5',
+              icon:'el-icon-cpu',
+              level:'1',
+              leaf:'1',
+              children:[]
+            }
+          ]
         }
-    },
-    watch:{
-      isClose(newval,oldVal){
-        //this.$refs["el-menu"].openedMenus.length = 0;
-        /*this.$nextTick(()=>{
-          this.$refs["el-menu"].openedMenus.length = 0;
-        })*/
-      }
     },
     computed: {
       isClose () {
-        //console.log(this.$refs.el-menu.openedMenus);
         return this.$store.state.isActive;
       }
     },

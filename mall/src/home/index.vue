@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    hahah萨芬好i分红枉费我玩飞机
+    sfsdfsd
   </div>
 </template>
 

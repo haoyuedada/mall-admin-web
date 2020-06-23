@@ -1,6 +1,8 @@
 <template>
     <div id="topBar">
       <Hamburger @toggleClick="toggleSideBar"></Hamburger>
+      <BreadCrumb></BreadCrumb>
+      <LoginPerson></LoginPerson>
     </div>
 </template>
 
@@ -16,13 +18,17 @@
 
 <script>
   import Hamburger from '@/components/Hamburger'
+  import BreadCrumb from '@/components/BreadCrumb'
+  import LoginPerson from '@/components/LoginPerson'
 
 	export default {
 		data() {
 			return {msg: '初始代topbar'}
 		},
     components:{
-      Hamburger
+      Hamburger,
+      BreadCrumb,
+      LoginPerson
     },
     methods:{
       toggleSideBar(){

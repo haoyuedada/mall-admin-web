@@ -3,7 +3,7 @@
     <sideBar></sideBar>
     <div :class="['main-container',isClose ? 'closeSideBarMain'  : 'openSideBarMain']">
       <topBar></topBar>
-      <home></home>
+      <AppMain></AppMain>
     </div>
   </div>
 </template>
@@ -15,7 +15,7 @@
     width: 100%;
   }
   .main-container{
-    position:absolute;
+    position:relative;
     overflow: hidden;
     background-color: #304156;
     transition: width .28s;
@@ -34,7 +34,7 @@
 <script>
   import sideBar from './others/sideBar'
   import topBar from './others/topBar'
-  import home from '@/home/index'
+  import AppMain from './others/Appmain'
 	export default {
 		data() {
 			return {msg: '初始代模板1'}
@@ -42,7 +42,7 @@
     components:{
       sideBar,
       topBar,
-      home
+      AppMain
     },
     computed:{
       isClose(){
