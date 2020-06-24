@@ -9,12 +9,16 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 import Vcharts from 'v-charts'
 
+
+
 //import Hello from './components/HelloWorld'
 //import About from './components/Aboutt'
 //import sideBar from './components/sideBar'
 import App from './App'
 import router from './router'
 import store from './vuex/store'
+
+import './icons'
 
 Vue.use(ElementUI);
 Vue.use(Vcharts);

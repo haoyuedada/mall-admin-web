@@ -1,6 +1,6 @@
 <template>
     <div class="LoginPerson">
-      <img src="../../icons/header.jpg" height="40" width="40" style="border-radius: 8px;cursor: pointer"/>
+      <img src="@/assets/header.jpg" height="40" width="40" style="border-radius: 8px;cursor: pointer"/>
       <el-dropdown trigger="click">
         <span class="el-dropdown-link">
           <i class="el-icon-caret-bottom" />

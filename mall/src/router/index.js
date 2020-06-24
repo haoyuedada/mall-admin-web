@@ -53,7 +53,7 @@ const routes = [
   },
   {
     path:'*',
-    redirect:'404',
+    redirect:'/error/404',
     name:'notFound',
     hidden:true
   }

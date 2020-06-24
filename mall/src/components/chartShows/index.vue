@@ -27,7 +27,6 @@
 
 <style scoped>
 .chartShows{
-  width: 60%;
   background-color: #fff;
   position: relative;
   top: 25px;
