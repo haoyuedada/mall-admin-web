@@ -8,6 +8,7 @@
 <style>
 .home{
   height: 800px;
+  position: relative;
 }
 </style>
 

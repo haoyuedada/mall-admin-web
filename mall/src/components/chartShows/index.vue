@@ -30,6 +30,8 @@
   background-color: #fff;
   position: relative;
   top: 25px;
-  left: 25px;
+  left: 21px;
+  width: 94.5%;
+  padding: 16px 16px 0px;
 }
 </style>
