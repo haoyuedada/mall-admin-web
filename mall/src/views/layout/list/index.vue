@@ -1,16 +1,16 @@
 <template>
-  <div id="tableData" :data="list">
+    <div id="tableData" :data="tableData">
 
-  </div>
+    </div>
 </template>
 
 <script>
   import {fetchListWithChildren} from '@/api/productCate'
 
-  export default {
-    name: "productList",
+	export default {
+		name: "productList",
     data(){
-      return {
+		  return {
         list: null
       }
     },
@@ -34,7 +34,7 @@
         })
       }
     }
-  }
+	}
 </script>
 
 <style scoped>
