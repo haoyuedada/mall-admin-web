@@ -3,12 +3,8 @@ import { Message, MessageBox } from 'element-ui'
 
 //创建axios实例
 const service = axios.create({
-  method: "get",
-  baseURL:"api/getdata",
-  timeout:15000,
-  params: {
-    id:1
-  }
+  baseURL: process.env.BASE_API, // api的base_url
+  timeout: 15000 // 请求超时时间
 })
 
 export default service

@@ -3,8 +3,6 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-//import Hello from '../components/HelloWorld'
-//import About from '../components/Aboutt'
 import Layout from '../views/layout/layout'
 
 // 解决ElementUI导航栏中的vue-router在3.0版本以上重复点菜单报错问题
@@ -14,6 +12,7 @@ VueRouter.prototype.push = function push(location) {
 }
 const routes = [
   {path:'/404',component:()=>import('@/views/404/404'),hidden:true},
+  {path:'/login',component:()=>import('@/views/login/index'),hidden:true},
   {
     path:'/error',
     component: Layout,

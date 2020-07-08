@@ -1,28 +1,20 @@
 // 导入vue实例
 import Vue from 'vue'
 
-//导入 vue router
-//import VueRouter from 'vue-router'
-
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
 import Vcharts from 'v-charts'
 
-
-
-//import Hello from './components/HelloWorld'
-//import About from './components/Aboutt'
-//import sideBar from './components/sideBar'
 import App from './App'
 import router from './router'
 import store from './vuex/store'
-
+import Cookies from 'js-cookie'
 import './icons'
 
 Vue.use(ElementUI);
 Vue.use(Vcharts);
-
+Vue.use(Cookies);
 //实例化Vue实例
 new Vue({
   //定义Vue绑定的跟元素

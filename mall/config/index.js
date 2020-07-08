@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
         '/MDM': {
-          target: "http://39.104.110.36:8081/",
+          target: "http://39.104.110.36:9001/",
           changeOrigin: true,
           pathRewrite: {
             '^/MDM':'/MDM/'
