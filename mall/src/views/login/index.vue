@@ -11,7 +11,7 @@
       class="img img-right"
     ></el-image>
     <el-card class="login-card">
-      <div class="login-title">登录系统</div>
+      <div class="login-title">登 录 系 统</div>
       <el-form style="margin-top: 56px;">
         <el-form-item label="">
           <span class="login-svg">
@@ -128,6 +128,7 @@
     height: 100%;
     background: #2D3A4B;
     position: absolute;
+    background-image: url('../../assets/login/bg.jpg');
   }
   .login-card{
     background: #2D3A4B;
