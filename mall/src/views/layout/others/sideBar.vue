@@ -185,7 +185,7 @@
           menus:[
             {
               name:'首页',
-              path:'/home',
+              path:'/home/home1',
               key:'1',
               icon:'el-icon-location',
               level:'1',

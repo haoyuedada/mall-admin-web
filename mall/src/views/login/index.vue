@@ -1,5 +1,15 @@
 <template>
   <div class="login">
+    <el-image
+      :src="urlleft"
+      :fit="fit"
+      class="img"
+    ></el-image>
+    <el-image
+      :src="urlright"
+      :fit="fit"
+      class="img img-right"
+    ></el-image>
     <el-card class="login-card">
       <div class="login-title">登录系统</div>
       <el-form style="margin-top: 56px;">
@@ -23,15 +33,20 @@
 </template>
 
 <script>
-  import axios from 'axios';
   import {login} from "../../api/login";
+  import {setCookies} from '@/utils/cookie';
+  import leftImg from '@/assets/login/left.png'
+  import rightImg from '@/assets/login/right.png'
 
   export default {
     name: 'login',
     data() {
       return {
         username:'',
-        userpassword:''
+        userpassword:'',
+        urlleft:leftImg,
+        urlright:rightImg,
+        fit:'fit'
       }
     },
     methods:{
@@ -49,9 +64,43 @@
         });
       },
       login(){
-        axios({
+        let username = this.username;
+        let userpassword = this.userpassword;
+        if(username == ""){
+          this.$message({
+            message: '用户名不能为空',
+            type: 'warning'
+          });
+          return;
+        }
+        login(username,userpassword).then((res)=>{
+          if(res.data.RES_CODE == "2"){//用户不存在
+            this.$message({
+              message: res.data.RES_INFO,
+              type: 'warning'
+            });
+          }else if(res.data.RES_CODE == "0"){//登录成功
+            this.$message({
+              message: res.data.RES_INFO,
+              type: 'success'
+            });
+            this.$router.push({path:'/home'});
+            //设置cookie
+            setCookies("USR_ID",res.data.USR_ID);
+            setCookies("USR_PASSWORD",this.userpassword); // 存明文不合适
+            setCookies("ENV_DS_ID","Default");
+            setCookies("USR_LAN","zh");
+            setCookies("AUTO_LOGIN",false);
+            setCookies("USR_COMPANY","");
+            setCookies("USR_COMPANY_MC","");
+            setCookies("USR_ORG",res.data.USR_DEPT);
+          }
+        }).catch((err)=>{
+          console.log(err);
+        });
+        /*axios({
           method: "post",
-          url: process.env.BASE_API+"/login2.do",  //使用 api+具体接口路径
+          url: "/MDM/login2.do",  //使用 api+具体接口路径
           params: {
             ENV_DS_ID: "Default",
             ENV_SERVICE_ID: "",
@@ -68,12 +117,11 @@
           console.log(res);
         }).catch(function(error) {
           console.log(error);
-        })
+        })*/
       }
     }
   }
 </script>
-
 <style>
   .login{
     width:100%;
@@ -122,5 +170,20 @@
   }
   .el-form-item{
     margin-bottom: 0px;
+  }
+  .img{
+    animation:Updown 1s infinite alternate;
+    -webkit-animation:Updown 1s alternate infinite;
+  }
+  @keyframes Updown {
+    from {
+      margin-top: 30px;
+    }
+    to {
+      margin-top: 10px;
+    }
+  }
+  .img-right{
+    float:right;
   }
 </style>
