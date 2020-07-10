@@ -19,6 +19,7 @@
     overflow: hidden;
     transition: width .28s;
     background-color: #f0f2f5;
+    height: 100%;
   }
   .closeSideBarMain{
     margin-left: 54px;

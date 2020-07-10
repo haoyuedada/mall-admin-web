@@ -17,4 +17,7 @@ export default {
     height:100%;
     overflow:hidden;
   }
+  #app{
+    height: 100%;
+  }
 </style>

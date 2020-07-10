@@ -3,15 +3,15 @@ import { Message, MessageBox } from 'element-ui'
 
 //创建axios实例
 const service = axios.create({
-  baseURL: process.env.BASE_API, // api的base_url
+  baseURL: '', // api的base_url;反向代理设置为空，index.js中proxyTable;正常访问时设为process.env.BASE_API
   timeout: 15000 // 请求超时时间
 })
 
 //response拦截器
-/*service.interceptors.response.use(
+service.interceptors.response.use(
   response => {
     if(response.data.ret == "0"){//登录超时
-      this.$confirm(response.data.msg, '提示', {
+      MessageBox.confirm(response.data.msg, '提示', {//注意不能用
         confirmButtonText: '确定',
         type: 'warning'
       }).then(() => {
@@ -24,5 +24,5 @@ const service = axios.create({
       confirmButtonText: '确定'
     });
   }
-)*/
+)
 export default service

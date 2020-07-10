@@ -11,10 +11,14 @@ import router from './router'
 import store from './vuex/store'
 import Cookies from 'js-cookie'
 import './icons'
+import 'xe-utils'
+import VXETable from 'vxe-table'
+import 'vxe-table/lib/index.css'
 
 Vue.use(ElementUI);
 Vue.use(Vcharts);
 Vue.use(Cookies);
+Vue.use(VXETable);
 //实例化Vue实例
 new Vue({
   //定义Vue绑定的跟元素

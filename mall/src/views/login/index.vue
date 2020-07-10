@@ -3,7 +3,7 @@
     <el-image
       :src="urlleft"
       :fit="fit"
-      class="img"
+      class="img img-left"
     ></el-image>
     <el-image
       :src="urlright"
@@ -33,7 +33,8 @@
 </template>
 
 <script>
-  import {login} from "../../api/login";
+  import axios from 'axios';
+  import {login} from "../../api/login";/*正常访问调用*/
   import {setCookies} from '@/utils/cookie';
   import leftImg from '@/assets/login/left.png'
   import rightImg from '@/assets/login/right.png'
@@ -115,6 +116,18 @@
           }
         }).then(function(res) {
           console.log(res);
+          if(res.data.RES_CODE == "2"){//用户不存在
+            this.$message({
+              message: res.data.RES_INFO,
+              type: 'warning'
+            });
+          }else if(res.data.RES_CODE == "0") {//登录成功
+            this.$message({
+              message: res.data.RES_INFO,
+              type: 'success'
+            });
+            this.$router.push({path: '/home'});
+          }
         }).catch(function(error) {
           console.log(error);
         })*/
@@ -138,6 +151,7 @@
     margin-left: -250px;
     top: 157px;
     border:1px solid #2D3A4B;
+    opacity: 0.95;
   }
   .login-title{
     position: absolute;
@@ -186,5 +200,8 @@
   }
   .img-right{
     float:right;
+  }
+  .img-left{
+    float:left;
   }
 </style>

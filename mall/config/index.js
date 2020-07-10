@@ -11,12 +11,11 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-        /*'/MDM': {
+        '/MDM': {
           target: "http://39.104.110.36:9001/",
           changeOrigin: true,
           pathRewrite: {
             '^/MDM':'/MDM/'
-
           }
         },
         '/TTF': {
@@ -25,7 +24,7 @@ module.exports = {
           pathRewrite: {
             '^/TTF':'/TTF/'
           }
-        },*/
+        },
     },
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

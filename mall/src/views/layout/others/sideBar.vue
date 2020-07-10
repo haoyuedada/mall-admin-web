@@ -185,7 +185,7 @@
           menus:[
             {
               name:'首页',
-              path:'/home/home1',
+              path:'/home1',
               key:'1',
               icon:'el-icon-location',
               level:'1',
@@ -358,10 +358,10 @@
     },
     methods:{
       handleOpen(key, keyPath){
-        console.log(key, keyPath);
+        /*console.log(key, keyPath);*/
       },
       handleClose(key, keyPath) {
-        console.log(key, keyPath);
+        /*console.log(key, keyPath);*/
       }
     }
   }
