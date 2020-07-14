@@ -49,30 +49,86 @@
       <el-drawer
         title="我是标题"
         :visible.sync="drawer"
-        :with-header="false">
-        <span>我来啦!</span>
+        :with-header="false"
+        size="20%">
+        <el-form ref="form" :model="form" label-width="80px" style="margin-top:20px">
+          <el-form-item label="姓名">
+            <el-input v-model="form.name"></el-input>
+          </el-form-item>
+          <el-form-item label="部门">
+            <el-input v-model="form.org" disabled="disabled"></el-input>
+          </el-form-item>
+          <el-form-item label="编号">
+            <el-input v-model="form.orderNo" disabled="disabled"></el-input>
+          </el-form-item>
+          <el-form-item label="电话">
+            <el-input v-model="form.tel"></el-input>
+          </el-form-item>
+          <el-form-item label="身份证号">
+            <el-input v-model="form.idCard"></el-input>
+          </el-form-item>
+          <el-form-item label="成本中心">
+            <el-input v-model="form.costCenter"></el-input>
+          </el-form-item>
+          <el-form-item label="生日">
+            <el-date-picker type="date" placeholder="选择日期" style="width: 100%;"></el-date-picker>
+          </el-form-item>
+          <el-form-item label="颜色主题">
+            <el-color-picker v-model="form.defaultColor" @change="setGlobalColor()"></el-color-picker>
+          </el-form-item>
+          <el-form-item label="信用等级">
+            <el-rate v-model="form.rate" style="margin-top: 8px;"></el-rate>
+          </el-form-item>
+        </el-form>
       </el-drawer>
     </div>
 </template>
 
 <script>
+  import { getStoAction,getGridAction } from '../../api/getStoGridData'
+
 	export default {
 		name: "panelGroup",
     data(){
 		  return {
         drawer: false,
-        direction: 'rtl'
+        direction: 'rtl',
+        form:{
+          name:'田梦',
+          org:'运营管理部',
+          tel:'88888888',
+          orderNo:'0000124',
+          idCard:'3125214521542',
+          costCenter:'管理费用',
+          defaultColor:"#304156",
+          rate:4
+        },
+        disabled:false
       }
     },
+    mounted() {
+		  this.getPersonalMessage();
+    },
     methods:{
-      personal(){
-        console.log(1);
+      getPersonalMessage(){
+        let senndata = '{"info":{"dctID":"SSF_USERS","dctPID":"#ROOT","dctPLevel":0},"pager":{"pageNo":1,"pageSize":20},"param":{"orderField":null,"orderType":"asc","sqlWhere":"","showChildren":"0","state":""}}'
+        getGridAction(senndata).then((res)=>{
+          console.log(res.data.rows);
+        }).catch((err)=>{
+          console.log(err);
+        })
+      },
+      setGlobalColor(){
+        this.$store.state.systemColor = this.form.defaultColor;
       }
     }
 	}
 </script>
 
 <style scoped lang="scss">
+  .el-input__inner{
+    background-color:#ffffff !important;
+  }
   .panel-group{
     margin-left: 2px !important;
     width: 100%;

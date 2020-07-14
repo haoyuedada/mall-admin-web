@@ -5,11 +5,15 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state:{
-    isActive:false
+    isActive:false,
+    systemColor:'#304156'
   },
   mutations:{
     spreadMenu(state){
       state.isActive = !state.isActive;
+    },
+    setStoreGolbalColor(state){
+      state.systemColor;
     }
   }
 })

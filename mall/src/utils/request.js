@@ -8,7 +8,7 @@ const service = axios.create({
 })
 
 //response拦截器
-service.interceptors.response.use(
+/*service.interceptors.response.use(
   response => {
     console.log(response);
     if(response.data.ret == "0"){//登录超时
@@ -26,5 +26,5 @@ service.interceptors.response.use(
       confirmButtonText: '确定'
     });
   }
-)
+)*/
 export default service

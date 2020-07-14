@@ -1,13 +1,13 @@
 <template>
-  <div :class="[isClose ? 'closeSideBar'  : 'openSideBar']">
-    <el-col>
+  <div :class="[isClose ? 'closeSideBar'  : 'openSideBar']" >
+    <el-col style="height: 100%;">
       <el-menu
-        style="transition: width .28s;width: 210px;"
+        style="transition: width 1.28s;width: 210px;height: 100%;"
         default-active="1"
         class="el-menu-vertical-demo"
         @open="handleOpen"
         @close="handleClose"
-        background-color="#304156"
+        :background-color="globalColor"
         text-color="#fff"
         active-text-color="rgb(64, 158, 255)"
         ref="el-menu"
@@ -135,7 +135,7 @@
     left: 0;
     z-index: 1001;
     overflow: hidden;
-    background-color:#304156;
+    /*background-color:#304156;*/
   }
   .openSideBar{
     transition: width .28s;
@@ -148,7 +148,7 @@
     left: 0;
     z-index: 1001;
     overflow: hidden;
-    background-color:#304156;
+    /*background-color:#304156;*/
     .el-submenu__icon-arrow{
       font-size: 15px !important;
     }
@@ -164,7 +164,7 @@
     left: 0;
     z-index: 1001;
     overflow: hidden;
-    background-color:#304156;
+    /*background-color:#304156;*/
     .el-submenu__icon-arrow{
       transition:width .28s;
       display: none;
@@ -354,6 +354,9 @@
     computed: {
       isClose () {
         return this.$store.state.isActive;
+      },
+      globalColor(){
+        return this.$store.state.systemColor;
       }
     },
     methods:{

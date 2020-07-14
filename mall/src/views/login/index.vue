@@ -33,7 +33,6 @@
 </template>
 
 <script>
-  import axios from 'axios';
   import {login} from "../../api/login";/*正常访问调用*/
   import {setCookies} from '@/utils/cookie';
   import leftImg from '@/assets/login/left.png'
@@ -75,6 +74,7 @@
           return;
         }
         login(username,userpassword).then((res)=>{
+          console.log(res);
           if(res.data.RES_CODE == "2"){//用户不存在
             this.$message({
               message: res.data.RES_INFO,
@@ -95,6 +95,11 @@
             setCookies("USR_COMPANY","");
             setCookies("USR_COMPANY_MC","");
             setCookies("USR_ORG",res.data.USR_DEPT);
+          }else if(res.data.RES_CODE == "3"){//已有账号登录
+            this.$message({
+              message: res.data.RES_INFO,
+              type: 'warning'
+            });
           }
         }).catch((err)=>{
           console.log(err);
@@ -135,7 +140,7 @@
     }
   }
 </script>
-<style>
+<style scoped>
   .login{
     width:100%;
     height: 100%;
@@ -176,7 +181,7 @@
   .color-main-password{
     font-size: 19px;
   }
-  .el-input__inner{
+  /deep/ .el-input__inner{
     background-color: #283443 !important;
     color: #fff;
     padding-left: 42px;

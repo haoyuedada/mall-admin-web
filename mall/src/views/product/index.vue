@@ -34,7 +34,7 @@
 </template>
 
 <script>
-  import { getStoAction,getGridAction } from '../../api/productCate'
+  import { getStoAction,getGridAction } from '../../api/getStoGridData'
   import { Message, MessageBox } from 'element-ui'
 
   export default {
