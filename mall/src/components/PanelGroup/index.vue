@@ -2,8 +2,8 @@
     <div class="panel">
       <el-row :gutter="40" class="panel-group">
         <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col"  >
-          <div class="card-panel" @click="handleSetLineChartData('newVisitis')">
-            <div class="card-panel-icon-wrapper icon-people">
+          <div class="card-panel">
+            <div class="card-panel-icon-wrapper icon-people" @click="drawer = true">
               <svg-icon icon-class="peoples" class-name="card-panel-icon"/>
             </div>
             <div class="card-panel-tip">
@@ -13,7 +13,7 @@
           </div>
         </el-col>
         <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col"  >
-          <div class="card-panel" @click="handleSetLineChartData('newVisitis')">
+          <div class="card-panel">
             <div class="card-panel-icon-wrapper icon-clipboard">
               <svg-icon icon-class="clipboard" class-name="card-panel-icon"/>
             </div>
@@ -24,7 +24,7 @@
           </div>
         </el-col>
         <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col"  >
-          <div class="card-panel" @click="handleSetLineChartData('newVisitis')">
+          <div class="card-panel">
             <div class="card-panel-icon-wrapper icon-message">
               <svg-icon icon-class="message" class-name="card-panel-icon"/>
             </div>
@@ -35,7 +35,7 @@
           </div>
         </el-col>
         <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col"  >
-          <div class="card-panel" @click="handleSetLineChartData('newVisitis')">
+          <div class="card-panel">
             <div class="card-panel-icon-wrapper icon-guide">
               <svg-icon icon-class="guide" class-name="card-panel-icon"/>
             </div>
@@ -46,6 +46,12 @@
           </div>
         </el-col>
       </el-row>
+      <el-drawer
+        title="我是标题"
+        :visible.sync="drawer"
+        :with-header="false">
+        <span>我来啦!</span>
+      </el-drawer>
     </div>
 </template>
 
@@ -54,7 +60,13 @@
 		name: "panelGroup",
     data(){
 		  return {
-
+        drawer: false,
+        direction: 'rtl'
+      }
+    },
+    methods:{
+      personal(){
+        console.log(1);
       }
     }
 	}

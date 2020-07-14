@@ -10,14 +10,16 @@ const service = axios.create({
 //response拦截器
 service.interceptors.response.use(
   response => {
+    console.log(response);
     if(response.data.ret == "0"){//登录超时
-      MessageBox.confirm(response.data.msg, '提示', {//注意不能用
+      MessageBox.confirm("登录超时", '提示', {//注意不能用
         confirmButtonText: '确定',
         type: 'warning'
       }).then(() => {
         this.$router.push({path:'/login'});
       })
     }
+    return response;//注意此处如果不return导致后续axios请求res参数为undefined
   },
   error => {
     this.$alert(error, '提示', {
