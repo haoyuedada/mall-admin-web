@@ -14,7 +14,8 @@
         :toolbar="tableToolbar"
         :custom-config="{storage: true}"
         :edit-config="{trigger: 'click', mode: 'row', showStatus: true}"
-        @toolbar-button-click="toolbarButtonClickEvent">
+        @toolbar-button-click="toolbarButtonClickEvent"
+        :loading="loading">
       <vxe-table-column title="基本信息">
         <vxe-table-column type="seq" width="60"></vxe-table-column>
         <vxe-table-column field="ID" title="编号"></vxe-table-column>
@@ -22,7 +23,7 @@
       </vxe-table-column>
       <vxe-table-column title="日期">
         <vxe-table-column field="DATBI" title="有效截至日期"></vxe-table-column>
-        <vxe-table-column field="FSRQ" title="发送日期(发送程式自动生成)"></vxe-table-column>
+        <vxe-table-column field="FSRQ" title="发送日期(发送程式自动生成)" :formatter="formatTime"></vxe-table-column>
         <vxe-table-column field="FSSJ" title="发送时间(发送程式自动生成)"></vxe-table-column>
       </vxe-table-column>
       <vxe-table-column field="KOKRS" title="控制范围"></vxe-table-column>
@@ -36,6 +37,7 @@
 <script>
   import { getStoAction,getGridAction } from '../../api/getStoGridData'
   import { Message, MessageBox } from 'element-ui'
+  import XEUtils from 'xe-utils'
 
   export default {
     name: "productList",
@@ -62,7 +64,7 @@
           print: true,
           zoom: true,
           custom: true
-        },
+        }
       }
     },
     created(){
@@ -70,9 +72,11 @@
     },
     methods:{
       getProductCateList(){
+        this.loading = true;
         let senndata = '{"info":{"dctID":"PUB_DCT_LRZX","dctPID":"#ROOT","dctPLevel":0},"pager":{"pageNo":1,"pageSize":20},"param":{"orderField":null,"orderType":"asc","sqlWhere":"","showChildren":"0","state":""}}'
         getGridAction(senndata).then((res)=>{
           this.tableData = res.data.data.rows;
+          this.loading = false;
         }).catch((err)=>{
 
         })
@@ -97,6 +101,9 @@
             })
             break
         }
+      },
+      formatTime ({ cellValue, row, column }) {
+        return XEUtils.toDateString(cellValue, 'yyyy-MM-dd HH:ss:mm')
       }
     }
   }

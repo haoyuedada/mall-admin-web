@@ -201,7 +201,7 @@
               leaf:'0',
               children:[
                 {
-                  name:'商品列表',
+                  name:'表格示例',
                   path:'/product/productList',
                   key:'2-1',
                   icon:'el-icon-menu',

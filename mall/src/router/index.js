@@ -59,7 +59,7 @@ const routes = [
         path:'productList',
         name:'productList',
         component:()=>import('@/views/product/index'),
-        meta:{title:'商品列表',icon: 'product-list'}
+        meta:{title:'表格示例',icon: 'product-list'}
       }
     ]
   },
