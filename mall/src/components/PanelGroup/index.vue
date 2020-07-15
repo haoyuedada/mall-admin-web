@@ -7,8 +7,8 @@
               <svg-icon icon-class="peoples" class-name="card-panel-icon"/>
             </div>
             <div class="card-panel-tip">
-              <div class="card-panel-tip-title">personnel</div>
-              <div class="card-panel-tip-value">1200</div>
+              <div class="card-panel-tip-title">Personnel</div>
+              <div class="card-panel-tip-value">36,000</div>
             </div>
           </div>
         </el-col>
@@ -18,8 +18,8 @@
               <svg-icon icon-class="clipboard" class-name="card-panel-icon"/>
             </div>
             <div class="card-panel-tip">
-              <div class="card-panel-tip-title">file</div>
-              <div class="card-panel-tip-value">1200</div>
+              <div class="card-panel-tip-title">File</div>
+              <div class="card-panel-tip-value">13,280</div>
             </div>
           </div>
         </el-col>
@@ -29,8 +29,8 @@
               <svg-icon icon-class="message" class-name="card-panel-icon"/>
             </div>
             <div class="card-panel-tip">
-              <div class="card-panel-tip-title">message</div>
-              <div class="card-panel-tip-value">1200</div>
+              <div class="card-panel-tip-title">Message</div>
+              <div class="card-panel-tip-value">18,400</div>
             </div>
           </div>
         </el-col>
@@ -40,8 +40,8 @@
               <svg-icon icon-class="guide" class-name="card-panel-icon"/>
             </div>
             <div class="card-panel-tip">
-              <div class="card-panel-tip-title">mail</div>
-              <div class="card-panel-tip-value">1200</div>
+              <div class="card-panel-tip-title">Mail</div>
+              <div class="card-panel-tip-value">1,200</div>
             </div>
           </div>
         </el-col>
@@ -145,6 +145,7 @@
       color: rgba(0,0,0,.45);
       font-size: 16px;
       margin-bottom: 12px;
+      font-weight: bold;
     }
     .card-panel-tip-value{
       font-size: 20px;

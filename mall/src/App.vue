@@ -20,4 +20,7 @@ export default {
   #app{
     height: 100%;
   }
+  a{
+    text-decoration:none;
+  }
 </style>

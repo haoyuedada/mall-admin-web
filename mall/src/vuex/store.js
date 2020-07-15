@@ -6,7 +6,10 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state:{
     isActive:false,
-    systemColor:'#304156'
+    systemColor:'#304156',
+    TagViewsArr:[
+      {name:'首页',path:'/home1'}//默认首页标签
+    ]
   },
   mutations:{
     spreadMenu(state){
