@@ -3,6 +3,7 @@
     <sideBar></sideBar>
     <div :class="['main-container',isClose ? 'closeSideBarMain'  : 'openSideBarMain']">
       <topBar></topBar>
+      <TagViews></TagViews>
       <AppMain></AppMain>
     </div>
   </div>
@@ -35,6 +36,7 @@
 <script>
   import sideBar from './others/sideBar'
   import topBar from './others/topBar'
+  import TagViews from '@/components/TagViews/index'
   import AppMain from './others/Appmain'
 	export default {
 		data() {
@@ -43,7 +45,8 @@
     components:{
       sideBar,
       topBar,
-      AppMain
+      AppMain,
+      TagViews
     },
     computed:{
       isClose(){
