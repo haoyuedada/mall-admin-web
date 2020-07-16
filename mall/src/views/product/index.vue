@@ -55,7 +55,6 @@
 <script>
   import { getStoAction,getGridAction } from '../../api/getStoGridData'
   import { Message, MessageBox } from 'element-ui'
-  import XEUtils from 'xe-utils'
 
   export default {
     name: "productList",
@@ -139,7 +138,7 @@
         }
       },
       formatTime ({ cellValue, row, column }) {
-        return XEUtils.toDateString(cellValue, 'yyyy-MM-dd HH:ss:mm')
+        return this.$utils.toDateString(cellValue, 'yyyy-MM-dd HH:ss:mm')
       },
       handlePageChange ({ currentPage, pageSize }) {
         this.tablePage.currentPage = currentPage

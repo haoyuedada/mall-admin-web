@@ -11,9 +11,12 @@ import router from './router'
 import store from './vuex/store'
 import Cookies from 'js-cookie'
 import './icons'
+
 import 'xe-utils'
 import VXETable from 'vxe-table'
 import 'vxe-table/lib/index.css'
+
+import XEUtils from 'xe-utils'
 //样式
 import "@/styles/dct/dct.css"
 
@@ -21,6 +24,7 @@ Vue.use(ElementUI);
 Vue.use(Vcharts);
 Vue.use(Cookies);
 Vue.use(VXETable);
+Vue.prototype.$utils = XEUtils
 //实例化Vue实例
 new Vue({
   //定义Vue绑定的跟元素
