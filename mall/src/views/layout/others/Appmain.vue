@@ -8,7 +8,7 @@
 .Appmain{
   background-color: #f0f2f5;
   position: relative;
-  height: 90%;
+  height: 88%;
 }
 </style>
 

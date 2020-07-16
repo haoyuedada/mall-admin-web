@@ -14,6 +14,8 @@ import './icons'
 import 'xe-utils'
 import VXETable from 'vxe-table'
 import 'vxe-table/lib/index.css'
+//样式
+import "@/styles/dct/dct.css"
 
 Vue.use(ElementUI);
 Vue.use(Vcharts);

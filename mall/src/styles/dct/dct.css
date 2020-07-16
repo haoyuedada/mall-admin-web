@@ -1,0 +1,26 @@
+/*表格*/
+#tableData{
+  height: 100%;
+  margin-right: 12px;
+  margin-left: 10px;
+}
+/*分页start*/
+.vxe-pager{
+  text-align: center;
+}
+.vxe-pager--wrapper{
+  display: inline-block;
+}
+/*分页end*/
+#title{/*标题*/
+  float: left;
+  font-size: 17px;
+  border-bottom: 3px solid #B3B3B3;
+  margin-top: 14px;
+  padding-left: 5px;
+}
+.dct-icon{/*标题前图标*/
+  margin-bottom: -3px;
+  font-size: 28px;
+  color: #B3B3B3;
+}

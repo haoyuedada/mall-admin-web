@@ -8,11 +8,11 @@ const service = axios.create({
 })
 
 //response拦截器
-/*service.interceptors.response.use(
+service.interceptors.response.use(
   response => {
     console.log(response);
     if(response.data.ret == "0"){//登录超时
-      MessageBox.confirm("登录超时", '提示', {//注意不能用
+      MessageBox.confirm("登录超时", '提示', {
         confirmButtonText: '确定',
         type: 'warning'
       }).then(() => {
@@ -26,5 +26,5 @@ const service = axios.create({
       confirmButtonText: '确定'
     });
   }
-)*/
+)
 export default service
