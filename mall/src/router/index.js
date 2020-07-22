@@ -60,6 +60,12 @@ const routes = [
         name:'productList',
         component:()=>import('@/views/product/index'),
         meta:{title:'表格示例',icon: 'product-list'}
+      },
+      {
+        path:'formDemo',
+        name:'formDemo',
+        component:()=>import('@/views/formSimple/formSimple'),
+        meta:{title:'表单示例',icon: 'product-list'}
       }
     ]
   },

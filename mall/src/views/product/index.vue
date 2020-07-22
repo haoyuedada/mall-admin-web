@@ -23,11 +23,12 @@
         :loading="loading"
         :tooltip-config="{enabled: true,contentMethod: showTooltipMethod}"
         @checkbox-all="selectAllEvent"
-        @checkbox-change="selectChangeEvent">
+        @checkbox-change="selectChangeEvent"
+        :checkbox-config="{range: true}">
       <vxe-table-column type="checkbox" width="40"></vxe-table-column>
       <vxe-table-column title="基本信息">
         <vxe-table-column type="seq" width="60"></vxe-table-column>
-        <vxe-table-column field="ID" title="编号" :filters="[{label:'id大于1000',value:1000},{label:'id大于4000',value:4000}]" :filter-method="filterMethod"></vxe-table-column>
+        <vxe-table-column field="ID" title="编号" sortable :filters="[{label:'id大于1000',value:1000},{label:'id大于4000',value:4000}]" :filter-method="filterMethod"></vxe-table-column>
         <vxe-table-column field="PRCTR" title="利润中心"></vxe-table-column>
       </vxe-table-column>
       <vxe-table-column title="日期">

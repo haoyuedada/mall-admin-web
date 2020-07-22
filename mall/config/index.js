@@ -18,11 +18,11 @@ module.exports = {
             '^/MDM':'/MDM/'
           }
         },
-        '/TTF': {
-          target: "http://39.104.110.36:8084/",
+        '/FSS': {
+          target: "http://39.104.110.36:9001/",
           changeOrigin: true,
           pathRewrite: {
-            '^/TTF':'/TTF/'
+            '^/FSS':'/FSS/'
           }
         },
     },

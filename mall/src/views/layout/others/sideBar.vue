@@ -125,7 +125,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .sidebar{
     height: 100%;
     position: fixed;
@@ -210,8 +210,8 @@
                   children:[]
                 },
                 {
-                  name:'添加商品',
-                  path:'/product/productAdd',
+                  name:'表单示例',
+                  path:'/product/formDemo',
                   key:'2-2',
                   icon:'el-icon-s-goods',
                   level:'2',
