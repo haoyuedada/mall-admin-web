@@ -33,7 +33,7 @@
       </vxe-table-column>
       <vxe-table-column title="日期">
         <vxe-table-column field="DATBI" title="有效截至日期"></vxe-table-column>
-        <vxe-table-column field="FSRQ" title="发送日期(发送程式自动生成)" :formatter="formatTime"></vxe-table-column>
+        <vxe-table-column field="FSRQ" title="发送日期(发送程式自动生成)" :formatter="formatTime" width="280"></vxe-table-column>
         <vxe-table-column field="FSSJ" title="发送时间(发送程式自动生成)" align = 'right'></vxe-table-column>
       </vxe-table-column>
       <vxe-table-column field="KOKRS" title="控制范围"></vxe-table-column>
