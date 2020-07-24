@@ -7,7 +7,7 @@
           <el-col :span="24" v-if="item1.ControlSource == 5 && index == item1.RIdx" class="group">{{ item1.UDisp }}</el-col>
           <el-col :span="3" v-if="item1.StoreFieldInfo != undefined && index == item1.RIdx" class="el-col-field">
             <span>{{ item1.UDisp }}</span>
-            <el-input v-if="item1.ControlSource == 2" size="small" style="width: 200px" :disabled="!item1.Editable"></el-input>
+            <el-input :data="item1.FieldName" @input="changeInput" v-model="masterData[item1.FieldName]" v-if="item1.ControlSource == 2" size="small" style="width: 200px" :disabled="!item1.Editable"></el-input>
           </el-col>
         </template>
       </el-row>
@@ -27,7 +27,7 @@
         RIdx:0,
         rowNum:null,
         materStoId:'',
-        masterData:''
+        masterData:[]
       }
     },
     created(){
@@ -36,7 +36,6 @@
     methods:{
       getVchrLayout(){
         getVchrLayout("GL_YWJT_JYFYD").then(res => {
-          //this.vchrLayoutMaster = res.data.data.MasterVchr.Layout;
           res.data.data.MasterVchr.Layout.forEach(function (k,v) {
             res.data.data.MasterVchr.Field.forEach(function (x,y) {
               if(k.ControlSource == "2" && k.FieldName == x.Name){
@@ -47,14 +46,14 @@
           this.vchrLayoutMaster = res.data.data.MasterVchr.Layout;
           this.rowNum = this.vchrLayoutMaster[this.vchrLayoutMaster.length-1]["RIdx"] + 1; //行数,用来el-row
           this.materStoId =res.data.data.MasterVchr.StoInfo.STOId;
-          getStoAction(this.materStoId,[],"").then(res => {
-            console.log(res);
+          let senddata = {"stoID":"GL_STO_YWCZD","stoPK":"JYFY202001120001","param":{"stoFilter":[{"F_FIELD":"F_ID","F_EXP":"=JYFY202001120001"}]}};
+          getStoCardData(JSON.stringify(senddata)).then(res => {
+            this.masterData = res.data.data;
           });
-          /*let senddata = '{"stoID":'+ this.materStoId +',"stoPK":"JYFY202001120001","param":{"stoFilter":[{"F_FIELD":"F_ID","F_EXP":"=JYFY202001120001"}]}}';
-          getStoCardData(senddata).then(res => {
-            console.log(res);
-          });*/
         })
+      },
+      changeInput(value){
+        console.log("主表input变化："+value);
       }
     }
 	}

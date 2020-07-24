@@ -1,16 +1,18 @@
 import axios from 'axios'
 import { Message, MessageBox } from 'element-ui'
 
+
 //创建axios实例
 const service = axios.create({
   baseURL: '', // api的base_url;反向代理设置为空，index.js中proxyTable;正常访问时设为process.env.BASE_API
-  timeout: 15000 // 请求超时时间
+  timeout: 15000, // 请求超时时间
+  headers:{'Content-Type': 'application/x-www-form-urlencoded'}
 })
 
 //response拦截器
 service.interceptors.response.use(
   response => {
-    console.log(response);
+    //console.log(response);
     if(response.data.ret == "0"){//登录超时
       MessageBox.confirm("登录超时", '提示', {
         confirmButtonText: '确定',
