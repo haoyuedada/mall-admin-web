@@ -12,6 +12,26 @@
         </template>
       </el-row>
     </template>
+
+    <!--子凭据渲染-->
+    <template v-for="(item,index) in level">
+      <el-tabs type="border-card" v-for="(item1,index1) in vchrlayoutChildren[item]" :key="index1" :class="index1">
+        <template v-for="(item2,index2) in item1">
+          <el-tab-pane :label="item2.VarName" v-if="item2.StoreLayout != undefined"><!--不然会报undefined的错误-->
+            <vxe-table
+              size="medium"
+              border
+              :auto-resize="true"
+              resizable>
+              <vxe-table-column type="seq"></vxe-table-column>
+              <template v-for="(item3,index3) in item2.StoreLayout.Elements">
+                <vxe-table-column min-width="150" :field="item3.Name" :title="item3.Dest" v-if="item3.VisibleMode == '1'"></vxe-table-column> <!--VisibleMode控制显示-->
+              </template>
+            </vxe-table>
+          </el-tab-pane>
+        </template>
+      </el-tabs>
+    </template>
   </div>
 </template>
 
@@ -24,10 +44,12 @@
     data(){
 		  return {
 		    vchrLayoutMaster:[],
+        vchrlayoutChildren:[],
         RIdx:0,
         rowNum:null,
         materStoId:'',
-        masterData:[]
+        masterData:[],
+        level:null //级数，二级明细，三级明细
       }
     },
     created(){
@@ -46,6 +68,8 @@
           this.vchrLayoutMaster = res.data.data.MasterVchr.Layout;
           this.rowNum = this.vchrLayoutMaster[this.vchrLayoutMaster.length-1]["RIdx"] + 1; //行数,用来el-row
           this.materStoId =res.data.data.MasterVchr.StoInfo.STOId;
+          this.level = Object.keys(res.data.data.ChildrenVchr);
+          this.vchrlayoutChildren = res.data.data.ChildrenVchr;
           let senddata = {"stoID":"GL_STO_YWCZD","stoPK":"JYFY202001120001","param":{"stoFilter":[{"F_FIELD":"F_ID","F_EXP":"=JYFY202001120001"}]}};
           getStoCardData(JSON.stringify(senddata)).then(res => {
             this.masterData = res.data.data;
@@ -80,5 +104,8 @@
     text-align: center;
     font-size: 25px;
     padding-top: 30px;
+  }
+  .SheetsCount{
+    display: none;
   }
 </style>
