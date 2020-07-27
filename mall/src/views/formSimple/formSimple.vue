@@ -77,7 +77,7 @@
         })
       },
       changeInput(value){
-        console.log("主表input变化："+value);
+        console.log("主表input时变化："+value);
       }
     }
 	}
