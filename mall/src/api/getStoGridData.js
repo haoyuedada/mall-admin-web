@@ -10,16 +10,12 @@ export function getGridAction(sendData) {
     })
   })
 }
-export function getStoAction(stoid,stoFilter,sql) {
+export function getStoAction(sendData) {
   return request({
     url:'/FSS/version2/proplatform/showcomvoucher/version2/STOAction.do',
     method:'post',
     data: qs.stringify({
-      jsondata:{
-        "info":{"stoID":stoid,"stoFilter":stoFilter},
-        "pager":{"pageNo":1,"pageSize":10000,"rowCount":10000},
-        "param":{"orderField":"","orderType":"desc","sqlWhere":sql,"state":"data"}
-      }
+      jsondata:sendData
     })
   })
 }

@@ -134,8 +134,8 @@
                   children:[]
                 },
                 {
-                  name:'商品分类',
-                  path:'/product/productAdd',
+                  name:'看板示例',
+                  path:'/product/performanceBoard',
                   key:'2-3',
                   icon:'el-icon-s-claim',
                   level:'2',

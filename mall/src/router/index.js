@@ -66,6 +66,12 @@ const routes = [
         name:'formDemo',
         component:()=>import('@/views/formSimple/formSimple'),
         meta:{title:'表单示例',icon: 'product-list'}
+      },
+      {
+        path:'performanceBoard',
+        name:'performanceBoard',
+        component:()=>import('@/views/performanceBoard/performanceBoard'),
+        meta:{title:'看板示例',icon: 'product-list'}
       }
     ]
   },

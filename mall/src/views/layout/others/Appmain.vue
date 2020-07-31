@@ -9,6 +9,7 @@
   background-color: #f0f2f5;
   position: relative;
   height: 88%;
+  overflow: auto;
 }
 </style>
 

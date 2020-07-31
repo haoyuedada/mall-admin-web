@@ -1,5 +1,6 @@
 <template>
   <div class="form-demo">
+    <!--主凭据渲染-->
     <template v-for="(item,index) in rowNum">
       <el-row :key="index" class="el-row">
         <template v-for="(item1,index1) in vchrLayoutMaster">
@@ -22,7 +23,10 @@
               size="medium"
               border
               :auto-resize="true"
-              resizable>
+              resizable
+              :data="tableData1"
+              height="300"
+              show-overflow>
               <vxe-table-column type="seq"></vxe-table-column>
               <template v-for="(item3,index3) in item2.StoreLayout.Elements">
                 <vxe-table-column min-width="150" :field="item3.Name" :title="item3.Dest" v-if="item3.VisibleMode == '1'"></vxe-table-column> <!--VisibleMode控制显示-->
@@ -45,6 +49,7 @@
 		  return {
 		    vchrLayoutMaster:[],
         vchrlayoutChildren:[],
+        tableData1:[],
         RIdx:0,
         rowNum:null,
         materStoId:'',
@@ -53,9 +58,22 @@
       }
     },
     created(){
-		  this.getVchrLayout()
+		  this.getVchrLayout();
+		  this.getStoRowdata();
     },
     methods:{
+      getStoRowdata(){
+        let sendData = {
+          "info":{"stoID":"EM_STO_FYYT","vcrID":"EM_STO_FYYT",
+                  "rowDIM":"","colDIM":"","rowDimFilter":[],
+                  "colDimFilter":[],"stoFilter":[{"F_FIELD":"F_DJBH","F_EXP":"=JYFY202001120001"}],"groupMesure":false},
+          "pager":{},
+          "param":{"orderField":null,"orderType":"asc","sqlWhere":"","state":"all"}
+        };
+        getStoAction(JSON.stringify(sendData)).then(res => {
+          this.tableData1 = res.data.data.rows;
+        })
+      },
       getVchrLayout(){
         getVchrLayout("GL_YWJT_JYFYD").then(res => {
           res.data.data.MasterVchr.Layout.forEach(function (k,v) {
