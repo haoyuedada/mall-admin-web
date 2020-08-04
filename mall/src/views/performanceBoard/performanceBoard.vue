@@ -1,23 +1,34 @@
 <template>
-    <div id="v-charts">
-
+    <div id="echartMain">
+      <el-carousel id="carousel" :autoplay="false" style="height: 100%">
+        <el-carousel-item class="carousel-item" style="height: 100%">
+          <div class="carousel-item-logo">
+            <svg-icon icon-class="performancelogo"/>
+            <span class="carousel-item-span">中国XX资金监控平台</span>
+          </div>    
+          <div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </el-carousel-item>
+        <el-carousel-item>2</el-carousel-item>
+        <el-carousel-item>3</el-carousel-item>
+      </el-carousel>
     </div>
 </template>
 
 <script>
-  import echarts from 'echarts'
+
 
 	export default {
 		name: "performanceBoard",
-    created(){
-		  this.draw();
-    },
-    components:{
-      echarts
+    mounted(){
+		  //this.draw();
     },
     methods:{
       draw(){
-        let myChart = echarts.init(document.getElementById('v-charts'));
+        let myChart = this.$echarts.init(document.getElementById('echartMain'));
         myChart.setOption({
           title: {
             text: 'ECharts 入门示例'
@@ -42,4 +53,24 @@
 
 <style scoped>
 
+#carousel{
+  width: 100%;
+  height: 100%;
+}
+#echartMain{
+  width: 100%;
+  height: 100%;
+  background-color: #1D1C25;
+}
+.carousel-item-logo{
+  text-align: center;
+  font-size: 24px;
+  font-family: -webkit-body;
+}
+/deep/ .el-carousel__container{
+  height: 100% !important;
+}
+.carousel-item-span{
+  color:#ffffff;
+}
 </style>

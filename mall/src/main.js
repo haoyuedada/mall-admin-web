@@ -20,11 +20,15 @@ import XEUtils from 'xe-utils'
 //样式
 import "@/styles/dct/dct.css"
 
+import echarts from 'echarts'
+
+
 Vue.use(ElementUI);
 Vue.use(Vcharts);
 Vue.use(Cookies);
 Vue.use(VXETable);
 Vue.prototype.$utils = XEUtils
+Vue.prototype.$echarts = echarts;
 //实例化Vue实例
 new Vue({
   //定义Vue绑定的跟元素

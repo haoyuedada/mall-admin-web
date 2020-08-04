@@ -38,13 +38,12 @@
     </template>
   </div>
 </template>
-
 <script>
   import { getVchrLayout } from '@/api/getVchrData'
   import { getStoAction,getStoCardData } from '@/api/getStoGridData'
 
 	export default {
-		name: "formSimple",
+    name: "formSimple",
     data(){
 		  return {
 		    vchrLayoutMaster:[],
@@ -100,7 +99,6 @@
     }
 	}
 </script>
-
 <style scoped>
   .form-demo{
     padding-left: 15px;
