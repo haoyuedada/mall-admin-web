@@ -21,12 +21,15 @@ import XEUtils from 'xe-utils'
 import "@/styles/dct/dct.css"
 
 import echarts from 'echarts'
+import fullscreen from 'vue-fullscreen'
 
+import '@/fonts/css/font.css'
 
 Vue.use(ElementUI);
 Vue.use(Vcharts);
 Vue.use(Cookies);
 Vue.use(VXETable);
+Vue.use(fullscreen);
 Vue.prototype.$utils = XEUtils
 Vue.prototype.$echarts = echarts;
 //实例化Vue实例
