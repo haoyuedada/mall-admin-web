@@ -2,30 +2,11 @@
 
 > A Vue.js project
 
-## Build Setup
+## 项目演示
 
-``` bash
-# install dependencies
-npm install
+![Image text](https://raw.githubusercontent.com/haoyuedada/mall-admin-web/master/mall/img-floder/shouye.png)
+![Image text](https://raw.githubusercontent.com/haoyuedada/mall-admin-web/master/mall/img-floder/biaoge.png)
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
 ### 技术选型
 
 技术 | 说明 | 官网
@@ -37,6 +18,9 @@ Element | 前端UI框架 | [https://element.eleme.io/](https://element.eleme.io/
 v-charts | 基于Echarts的图表框架 | [https://v-charts.js.org/](https://v-charts.js.org/)
 nprogress | 进度条控件 | [https://github.com/rstacruz/nprogress](https://github.com/rstacruz/nprogress)
 sass-loader | CSS预处理语言 |[https://www.sass.hk/]
+axios | 基于promise的HTTP库 | [https://www.kancloud.cn/yunye/axios/234845](https://www.kancloud.cn/yunye/axios/234845)
+vxe-table | 基于vue表格处理 | [https://xuliangzhan.com/vxe-table/index.html](https://xuliangzhan.com/vxe-table/index.html)
+
 ### 项目布局
 
 ``` lua
